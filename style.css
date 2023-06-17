@@ -52,6 +52,7 @@ body {
     animation: rotation 5s linear infinite;
 }
 .card::after {
+    -webkit-filter: blur(3.5em);
     filter: blur(3.5em);
 }
 
