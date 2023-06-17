@@ -1,0 +1,64 @@
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotation {
+    0% {
+        --gradient-angle: 0deg;
+    }
+    100% {
+        --gradient-angle: 360deg;
+    }
+}
+:root {
+    --clr-1: #000;
+    --clr-2: #193512;
+    --clr-3: #6c6eff;
+    --clr-4: #ff8787;
+    --clr-5: #89f0b1;
+}
+body {
+    background: var(--clr-1);
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
+}
+div {
+    height: 60vh;
+    aspect-ratio: 1 / 1.5;
+    background: var(--clr-1);
+    border-radius: 0.5em;
+
+    position: relative;
+}
+
+div::before,
+div::after {
+    content: "";
+    position: absolute;
+    inset: -0.3rem;
+    z-index: -1;
+    background: conic-gradient(
+        from var(--gradient-angle),
+        var(--clr-2),
+        var(--clr-4),
+        var(--clr-5),
+        var(--clr-3),
+        var(--clr-2)
+    );
+    border-radius: inherit;
+    animation: rotation 5s linear infinite;
+}
+div::after {
+    filter: blur(3.5em);
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+}
