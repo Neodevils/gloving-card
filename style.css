@@ -25,7 +25,7 @@ body {
     display: grid;
     place-content: center;
 }
-div {
+.card {
     height: 60vh;
     aspect-ratio: 1 / 1.5;
     background: var(--clr-1);
@@ -34,8 +34,8 @@ div {
     position: relative;
 }
 
-div::before,
-div::after {
+.card::before,
+.card::after {
     content: "";
     position: absolute;
     inset: -0.3rem;
@@ -51,11 +51,11 @@ div::after {
     border-radius: inherit;
     animation: rotation 5s linear infinite;
 }
-div::after {
+.card::after {
     filter: blur(3.5em);
 }
 
-h1 {
+.text {
     color: white;
     text-align: center;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
